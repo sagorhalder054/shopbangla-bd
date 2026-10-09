@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="bn">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ShopBangla BD — Online Shopping</title>
+<meta name="description" content="ShopBangla BD — বাংলাদেশের অনলাইন শপ">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top"><a class="brand" href="#">ShopBangla <span>BD</span></a><div class="search"><input id="search" placeholder="পণ্য খুঁজুন…"><button id="searchBtn">খুঁজুন</button></div><button class="cart" id="cartBtn">🛒 কার্ট <b id="cartCount">0</b></button></header>
+<nav><a href="#home">হোম</a><a href="#products">সব পণ্য</a><a href="#categories">ক্যাটাগরি</a><a href="#order">অর্ডার</a></nav>
+<main>
+<section class="hero" id="home"><div><p class="eyebrow">আপনার অনলাইন শপ</p><h1>পছন্দের পণ্য,<br><span>সহজেই আপনার ঘরে</span></h1><p>বিশ্বস্ত কেনাকাটা • সহজ অর্ডার • বাংলাদেশজুড়ে ডেলিভারি</p><a class="cta" href="#products">কেনাকাটা শুরু করুন →</a></div><div class="hero-art">🛍️<small>SHOP SMART, SHOP BANGLA</small></div></section>
+<section id="categories"><h2>ক্যাটাগরি</h2><div class="categories"><button data-cat="সব">সব পণ্য</button><button data-cat="বেবি ও কিডস">🧸 বেবি ও কিডস</button><button data-cat="ঘর ও রান্নাঘর">🏠 ঘর ও রান্নাঘর</button><button data-cat="ফ্যাশন">👕 ফ্যাশন</button><button data-cat="গ্যাজেট">🎧 গ্যাজেট</button></div></section>
+<section id="products"><div class="section-head"><div><h2>জনপ্রিয় পণ্য</h2><p>আপনার পছন্দের পণ্য বেছে নিন</p></div><span class="demo">ডেমো পণ্য — নিজের পণ্য দিয়ে বদলান</span></div><div class="product-grid" id="productGrid"></div></section>
+<section class="trust"><div>🚚 <b>ডেলিভারি</b><small>কুরিয়ারের মাধ্যমে</small></div><div>💵 <b>ক্যাশ অন ডেলিভারি</b><small>ব্যবসার নিয়ম অনুযায়ী</small></div><div>💬 <b>সহায়তা</b><small>অর্ডারের জন্য যোগাযোগ</small></div></section>
+<section id="order" class="order-section"><div><h2>অর্ডার করুন</h2><p>কার্টে পণ্য যোগ করে নিচের ফর্ম পূরণ করুন।</p><div id="cartItems" class="cart-items">কার্টে এখনো কোনো পণ্য নেই।</div><div class="total">মোট: ৳<span id="total">0</span></div></div><form id="orderForm"><label>আপনার নাম<input name="customer_name" required placeholder="পূর্ণ নাম"></label><label>মোবাইল নম্বর<input name="phone" required inputmode="tel" placeholder="01XXXXXXXXX"></label><label>সম্পূর্ণ ঠিকানা<textarea name="address" required placeholder="বাসা, রোড, এলাকা, জেলা"></textarea></label><label>অতিরিক্ত নির্দেশনা (ঐচ্ছিক)<textarea name="notes" placeholder="রং/সাইজ বা ডেলিভারি নির্দেশনা"></textarea></label><button class="cta" type="submit">অর্ডার জমা দিন</button><p id="formMessage" class="message"></p></form></section>
+</main><footer><a class="brand" href="#">ShopBangla <span>BD</span></a><p>বাংলাদেশের অনলাইন শপ</p><small>© <span id="year"></span> ShopBangla BD</small></footer>
+<dialog id="notice"><div class="dialog-inner"><button class="close" id="closeDialog">×</button><h3>অর্ডারের তথ্য</h3><p id="dialogText"></p><button class="cta" id="dialogOk">ঠিক আছে</button></div></dialog>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="app.js"></script>
+</body></html>
+@import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap');
+:root{--green:#1d765d;--mint:#eaf5ef;--ink:#172a24;--muted:#64756e;--line:#e4ece7;--orange:#ffb35b}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--ink);font-family:'Hind Siliguri',sans-serif;background:#fff}a{color:inherit;text-decoration:none}.top{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:17px max(5%,calc((100% - 1180px)/2));border-bottom:1px solid var(--line);position:sticky;top:0;background:#fff;z-index:5}.brand{font-weight:700;font-size:23px;white-space:nowrap}.brand span{color:var(--green)}.search{display:flex;max-width:510px;width:100%;background:#f5f8f6;border-radius:10px;padding:4px}.search input{border:0;background:transparent;outline:0;flex:1;padding:9px;min-width:0;font:inherit}.search button,.cart{border:0;border-radius:8px;padding:8px 14px;background:var(--green);color:white;font:inherit;cursor:pointer}.cart{background:var(--mint);color:var(--green);white-space:nowrap}nav{display:flex;justify-content:center;gap:36px;padding:12px;border-bottom:1px solid var(--line);font-weight:500}nav a:hover{color:var(--green)}main{max-width:1180px;margin:auto;padding:0 22px}.hero{margin:32px 0 48px;background:linear-gradient(115deg,#eaf5ef,#f9f8ed);border-radius:22px;padding:55px 6%;display:flex;align-items:center;justify-content:space-between;gap:30px;overflow:hidden}.eyebrow{color:var(--green);font-weight:700}.hero h1{font-size:clamp(32px,4vw,52px);line-height:1.22;margin:8px 0 14px}.hero h1 span{color:var(--green)}.hero p{color:var(--muted)}.cta{display:inline-block;background:var(--green);color:#fff;border:0;border-radius:9px;padding:12px 20px;font:600 16px 'Hind Siliguri',sans-serif;cursor:pointer;margin-top:12px}.hero-art{width:280px;height:220px;flex-shrink:0;border-radius:25px;background:#fff8e9;display:flex;align-items:center;justify-content:center;font-size:95px;position:relative;box-shadow:0 15px 45px #305e4815}.hero-art small{position:absolute;bottom:20px;font-size:10px;letter-spacing:2px;color:var(--green);font-weight:700}section{margin-bottom:48px}h2{font-size:27px;margin:0 0 16px}.categories{display:flex;flex-wrap:wrap;gap:10px}.categories button{border:1px solid var(--line);background:#fff;border-radius:25px;padding:10px 18px;font:inherit;cursor:pointer}.categories button.active,.categories button:hover{background:var(--green);color:#fff;border-color:var(--green)}.section-head{display:flex;align-items:end;justify-content:space-between;gap:10px}.section-head p{margin-top:-10px;color:var(--muted)}.demo{font-size:12px;color:#936324;background:#fff5e5;border-radius:6px;padding:5px 9px}.product-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.product{border:1px solid var(--line);border-radius:15px;overflow:hidden;transition:.2s;background:white}.product:hover{transform:translateY(-3px);box-shadow:0 12px 30px #143b2812}.product-visual{height:175px;display:flex;align-items:center;justify-content:center;font-size:70px;background:linear-gradient(135deg,#f3f8f4,#f8f5ed)}.product-body{padding:14px}.tag{font-size:11px;color:var(--green);background:var(--mint);padding:3px 7px;border-radius:5px}.product h3{font-size:16px;margin:9px 0 5px;min-height:48px}.price{font-size:21px;color:var(--green);font-weight:700}.old-price{font-size:13px;color:#94a19b;text-decoration:line-through;margin-left:7px}.add{width:100%;border:0;border-radius:8px;background:var(--mint);color:var(--green);padding:9px;margin-top:10px;font:600 14px 'Hind Siliguri',sans-serif;cursor:pointer}.add:hover{background:var(--green);color:white}.trust{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;background:#f7faf8;padding:25px;border-radius:15px}.trust div{display:grid;grid-template-columns:36px 1fr;align-items:center}.trust div:first-letter{font-size:24px}.trust small{grid-column:2;color:var(--muted)}.order-section{display:grid;grid-template-columns:1fr 1fr;gap:35px;padding:30px;border:1px solid var(--line);border-radius:18px}.order-section p{color:var(--muted)}.cart-items{border-top:1px solid var(--line);padding-top:12px}.cart-line{display:flex;justify-content:space-between;gap:12px;padding:7px 0}.cart-line button{border:0;background:none;color:#b44;cursor:pointer}.total{font-size:22px;font-weight:700;margin-top:14px}.order-section form{display:grid;gap:12px}.order-section label{font-weight:600}.order-section input,.order-section textarea{display:block;width:100%;margin-top:5px;border:1px solid #dce7e0;border-radius:8px;padding:11px;font:inherit;outline-color:var(--green)}textarea{min-height:75px;resize:vertical}.message{font-size:14px;margin:0}.message.error{color:#b42318}.message.success{color:var(--green)}footer{text-align:center;background:#f7faf8;padding:30px 15px;color:var(--muted)}footer .brand{color:var(--ink)}footer p{margin:5px}dialog{border:0;border-radius:16px;max-width:440px;width:calc(100% - 30px);box-shadow:0 20px 70px #0003}dialog::backdrop{background:#0c2018a6}.dialog-inner{padding:24px;position:relative}.close{position:absolute;right:14px;top:12px;border:0;background:none;font-size:25px;cursor:pointer}@media(max-width:800px){.top{flex-wrap:wrap}.search{order:3;max-width:none}.hero{padding:35px 7%}.hero-art{width:180px;height:180px;font-size:70px}.product-grid{grid-template-columns:repeat(2,1fr)}.order-section{grid-template-columns:1fr}.trust{grid-template-columns:1fr}}@media(max-width:480px){nav{gap:16px;font-size:13px}.hero-art{display:none}.hero{margin-top:18px}.product-visual{height:140px}.product-body{padding:10px}.product h3{font-size:14px}.section-head{align-items:start;flex-direction:column}.demo{align-self:start}}
+
+-- Run this in Supabase Dashboard > SQL Editor.
+create table if not exists public.products (
+  id bigint generated by default as identity primary key,
+  name text not null,
+  category text not null default 'অন্যান্য',
+  price numeric(10,2) not null check (price >= 0),
+  old_price numeric(10,2),
+  emoji text default '🛍️',
+  description text,
+  image_url text,
+  active boolean not null default true,
+  created_at timestamptz not null default now()
+);
+create table if not exists public.orders (
+  id bigint generated by default as identity primary key,
+  customer_name text not null,
+  phone text not null,
+  address text not null,
+  notes text,
+  items jsonb not null,
+  total numeric(10,2) not null check (total >= 0),
+  status text not null default 'pending',
+  created_at timestamptz not null default now()
+);
+-- Public visitors may view active products. Do NOT allow public users to read all orders.
+alter table public.products enable row level security;
+alter table public.orders enable row level security;
+drop policy if exists "Anyone can view active products" on public.products;
+create policy "Anyone can view active products" on public.products for select using (active = true);
+-- Orders should be submitted through a protected server endpoint (Cloudflare Worker),
+-- not directly from a public browser using an anon key. Configure this before launch.
+-- Do not add a public INSERT policy on orders for a live store.
+insert into public.products(name,category,price,old_price,emoji,description) values
+('বেবি সফট টয়','বেবি ও কিডস',350,450,'🧸','শিশুদের জন্য নরম খেলনা'),
+('বেবি ফিডিং ওয়াটার পট','বেবি ও কিডস',650,790,'🍼','ভ্রমণ ও দৈনন্দিন ব্যবহারের জন্য'),
+('LED ডেস্ক ল্যাম্প','গ্যাজেট',520,650,'💡','পড়াশোনা ও কাজের জন্য'),
+('ইনসুলেটেড ট্রাভেল মগ','ঘর ও রান্নাঘর',450,550,'☕','গরম ও ঠান্ডা পানীয়ের জন্য'),
+('মিনি স্টোরেজ অর্গানাইজার','ঘর ও রান্নাঘর',390,490,'🧺','ঘর গোছাতে সহায়ক'),
+('কিডস বিল্ডিং ব্লক','বেবি ও কিডস',480,600,'🧩','সৃজনশীল খেলনা'),
+('ক্যাজুয়াল ক্যাপ','ফ্যাশন',280,350,'🧢','দৈনন্দিন ব্যবহারের জন্য'),
+('মোবাইল স্ট্যান্ড','গ্যাজেট',220,300,'📱','ডেস্ক ও ভিডিও কলের জন্য');
+
+/* ShopBangla BD starter. Add Supabase URL + anon key below after creating your project. */
+const SUPABASE_URL = '';
+const SUPABASE_ANON_KEY = '';
+const DEMO_PRODUCTS = [
+ {id:'p1',name:'বেবি সফট টয়',category:'বেবি ও কিডস',price:350,old_price:450,emoji:'🧸',description:'শিশুদের জন্য নরম খেলনা'},
+ {id:'p2',name:'বেবি ফিডিং ওয়াটার পট',category:'বেবি ও কিডস',price:650,old_price:790,emoji:'🍼',description:'ভ্রমণ ও দৈনন্দিন ব্যবহারের জন্য'},
+ {id:'p3',name:'LED ডেস্ক ল্যাম্প',category:'গ্যাজেট',price:520,old_price:650,emoji:'💡',description:'পড়াশোনা ও কাজের জন্য'},
+ {id:'p4',name:'ইনসুলেটেড ট্রাভেল মগ',category:'ঘর ও রান্নাঘর',price:450,old_price:550,emoji:'☕',description:'গরম ও ঠান্ডা পানীয়ের জন্য'},
+ {id:'p5',name:'মিনি স্টোরেজ অর্গানাইজার',category:'ঘর ও রান্নাঘর',price:390,old_price:490,emoji:'🧺',description:'ঘর গোছাতে সহায়ক'},
+ {id:'p6',name:'কিডস বিল্ডিং ব্লক',category:'বেবি ও কিডস',price:480,old_price:600,emoji:'🧩',description:'সৃজনশীল খেলনা'},
+ {id:'p7',name:'ক্যাজুয়াল ক্যাপ',category:'ফ্যাশন',price:280,old_price:350,emoji:'🧢',description:'দৈনন্দিন ব্যবহারের জন্য'},
+ {id:'p8',name:'মোবাইল স্ট্যান্ড',category:'গ্যাজেট',price:220,old_price:300,emoji:'📱',description:'ডেস্ক ও ভিডিও কলের জন্য'}
+];
+let products=[...DEMO_PRODUCTS], cart=[], activeCategory='সব', supabase=null;
+if(SUPABASE_URL && SUPABASE_ANON_KEY && window.supabase){supabase=window.supabase.createClient(SUPABASE_URL,SUPABASE_ANON_KEY);loadProducts();}
+function money(n){return Number(n).toLocaleString('en-BD')}
+function renderProducts(){const q=document.getElementById('search').value.trim().toLowerCase();const list=products.filter(p=>(activeCategory==='সব'||p.category===activeCategory)&&(`${p.name} ${p.category}`.toLowerCase().includes(q)));document.getElementById('productGrid').innerHTML=list.length?list.map(p=>`<article class="product"><div class="product-visual">${escapeHtml(p.emoji||'🛍️')}</div><div class="product-body"><span class="tag">${escapeHtml(p.category||'অন্যান্য')}</span><h3>${escapeHtml(p.name)}</h3><div><span class="price">৳${money(p.price)}</span> ${p.old_price?`<span class="old-price">৳${money(p.old_price)}</span>`:''}</div><button class="add" data-add="${escapeHtml(p.id)}">＋ কার্টে যোগ করুন</button></div></article>`).join(''):'<p>কোনো পণ্য পাওয়া যায়নি।</p>';document.querySelectorAll('[data-add]').forEach(b=>b.onclick=()=>addToCart(b.dataset.add));}
+function escapeHtml(v){return String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+function addToCart(id){const p=products.find(x=>String(x.id)===String(id));if(!p)return;const item=cart.find(x=>String(x.id)===String(id));item?item.qty++:cart.push({...p,qty:1});renderCart();document.getElementById('formMessage').textContent='';}
+function renderCart(){document.getElementById('cartCount').textContent=cart.reduce((s,x)=>s+x.qty,0);document.getElementById('total').textContent=money(cart.reduce((s,x)=>s+x.price*x.qty,0));document.getElementById('cartItems').innerHTML=cart.length?cart.map(x=>`<div class="cart-line"><span>${escapeHtml(x.name)} × ${x.qty}</span><span>৳${money(x.price*x.qty)} <button data-remove="${escapeHtml(x.id)}" aria-label="remove">✕</button></span></div>`).join(''):'কার্টে এখনো কোনো পণ্য নেই।';document.querySelectorAll('[data-remove]').forEach(b=>b.onclick=()=>{cart=cart.filter(x=>String(x.id)!==String(b.dataset.remove));renderCart();});}
+async function loadProducts(){try{const {data,error}=await supabase.from('products').select('id,name,category,price,old_price,emoji,description').eq('active',true).order('created_at',{ascending:false});if(error)throw error;if(data&&data.length)products=data;renderProducts();}catch(e){console.warn('Using demo products until Supabase is configured correctly.',e);}}
+document.querySelectorAll('[data-cat]').forEach(b=>b.addEventListener('click',()=>{activeCategory=b.dataset.cat;document.querySelectorAll('[data-cat]').forEach(x=>x.classList.toggle('active',x===b));renderProducts();}));document.querySelector('[data-cat="সব"]').classList.add('active');document.getElementById('searchBtn').onclick=renderProducts;document.getElementById('search').addEventListener('input',renderProducts);document.getElementById('cartBtn').onclick=()=>document.getElementById('order').scrollIntoView({behavior:'smooth'});document.getElementById('year').textContent=new Date().getFullYear();
+document.getElementById('orderForm').addEventListener('submit',async e=>{e.preventDefault();const msg=document.getElementById('formMessage');if(!cart.length){msg.className='message error';msg.textContent='প্রথমে কার্টে অন্তত একটি পণ্য যোগ করুন।';return;}const fd=new FormData(e.currentTarget);const order={customer_name:fd.get('customer_name').trim(),phone:fd.get('phone').trim(),address:fd.get('address').trim(),notes:fd.get('notes').trim(),items:cart.map(x=>({product_id:x.id,name:x.name,price:x.price,quantity:x.qty})),total:cart.reduce((s,x)=>s+x.price*x.qty,0),status:'pending'};if(supabase){try{const {error}=await supabase.from('orders').insert(order);if(error)throw error;msg.className='message success';msg.textContent='আপনার অর্ডার জমা হয়েছে। ধন্যবাদ!';cart=[];renderCart();e.currentTarget.reset();return;}catch(err){console.error(err);msg.className='message error';msg.textContent='ডেটাবেসে অর্ডার জমা হয়নি। Supabase সেটিংস ও permissions পরীক্ষা করুন।';return;}}document.getElementById('dialogText').textContent=`ডেমো মোড: ${order.customer_name}, মোট ৳${money(order.total)}। Supabase সেটআপ না হওয়ায় অর্ডারটি ডেটাবেসে সংরক্ষিত হয়নি।`;document.getElementById('notice').showModal();msg.className='message error';msg.textContent='এটি এখন ডেমো। Supabase যুক্ত না করা পর্যন্ত অর্ডার সংরক্ষণ হবে না।';});
+document.getElementById('closeDialog').onclick=()=>document.getElementById('notice').close();document.getElementById('dialogOk').onclick=()=>document.getElementById('notice').close();renderProducts();renderCart();
